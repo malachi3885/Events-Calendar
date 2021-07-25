@@ -1,9 +1,16 @@
 import React from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
-const MyCalendar = () => {
+import "./MyCalendar.css";
+const MyCalendar = ({}) => {
   return (
-    <div>
-      <h1>My Calendar</h1>
+    <div className="my-calendar">
+      <Calendar
+        className="my-calendar"
+        tileClassName="day-tile"
+        minDetail="month"
+      />
     </div>
   );
 };

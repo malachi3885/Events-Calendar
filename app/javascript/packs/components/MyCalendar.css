@@ -1,0 +1,15 @@
+.my-calendar {
+  width: 100vw;
+}
+
+.day-tile {
+  color: black;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-content: flex-start;
+  position: static;
+  top: 0;
+  left: 0;
+  padding-top: 0;
+  /* padding-bottom: 100px; */
+}
