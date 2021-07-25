@@ -1,0 +1,16 @@
+@import url("https://cdn.syncfusion.com/ej2/material.css");
+
+.App {
+  position: relative;
+}
+
+.card-absolute {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50vw, -50vh);
+}
+
+.main-content {
+  /* display: flex; */
+}
