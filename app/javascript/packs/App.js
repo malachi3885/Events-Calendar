@@ -10,8 +10,8 @@ import "./App.css";
 const App = () => {
   const { data, dateWithEvents } = useContext(EventsContext);
   const [showAddEvent, setShowAddEvent] = useState(false);
-  console.log(data);
-  console.log(dateWithEvents);
+  //   console.log(data);
+  //   console.log(dateWithEvents);
 
   const addEventHandler = () => {
     setShowAddEvent(true);

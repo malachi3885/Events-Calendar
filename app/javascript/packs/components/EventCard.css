@@ -1,0 +1,38 @@
+.event-card {
+  font-size: 1rem;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  margin-top: 3px;
+}
+
+.time-text {
+  font-size: 0.5rem;
+}
+
+.none-color {
+  border: 1px solid black;
+}
+
+.event-box {
+  border-radius: 5px;
+  padding: 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Red {
+  background-color: red;
+  color: white;
+}
+
+.Green {
+  background-color: green;
+  color: white;
+}
+
+.Blue {
+  background-color: blue;
+  color: white;
+}

@@ -48,7 +48,7 @@ const AddEventCard = (props) => {
     <>
       <div className="backdrop" onClick={props.onClose} />
       <div className="add-event-card">
-        <div className="card-header d-flex justify-content-between align-items-center">
+        <div className="card-header d-flex justify-content-between align-items-center card-header-text">
           Create Event
           <button
             type="button"
@@ -62,20 +62,20 @@ const AddEventCard = (props) => {
           <form className="form-group" onSubmit={submitHandler}>
             <input
               type="text"
-              className="form-control"
+              className="form-control input-form"
               placeholder="Add Title"
               value={title}
               onChange={titleChangeHandler}
             />
             <input
               type="text"
-              className="form-control"
+              className="form-control input-form"
               placeholder="Add Description"
               value={description}
               onChange={descriptionChangeHandler}
             />
             <select
-              className="form-control"
+              className="form-control input-form"
               value={color}
               onChange={colorChangeHandler}
             >
@@ -85,11 +85,12 @@ const AddEventCard = (props) => {
               <option>Green</option>
             </select>
             <DateTimePickerComponent
-              placeholder="Date and time"
+              className="form-control"
+              placeholder="Date and time "
               value={dateTime}
               onChange={dateChangeHandler}
             ></DateTimePickerComponent>
-            <button className="btn btn-primary">Save</button>
+            <button className="btn btn-primary save-button">Save</button>
           </form>
         </div>
       </div>

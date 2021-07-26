@@ -8,6 +8,17 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 
+.input-form {
+  margin-bottom: 10px;
+}
+
+.save-button {
+  margin-top: 10px;
+}
+
+.card-header-text {
+  font-size: 1.3rem;
+}
 .add-event-card {
   position: absolute;
   top: 50vh;
