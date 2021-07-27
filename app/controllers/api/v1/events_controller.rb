@@ -3,7 +3,7 @@ module Api
         class EventsController < ApplicationController
           protect_from_forgery with: :null_session
           def index
-            events = Event.all
+            events = Event.order('date').all
             
             render json: EventSerializer.new(events).serialized_json
           end
