@@ -5,11 +5,14 @@ import "react-calendar/dist/Calendar.css";
 
 import EventCard from "./EventCard";
 import AddEventCard from "./AddEventCard";
+import DateDetailCard from "./DateDetailCard";
 import "./MyCalendar.css";
 
 const MyCalendar = ({}) => {
   const [data, setData] = useState();
   const [dateWithEvents, setDateWithEvents] = useState([]);
+  const [showDetailCard, setShowDetailCard] = useState(false);
+  const [detailEvents, setDetailEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -54,21 +57,50 @@ const MyCalendar = ({}) => {
       .catch((error) => console.log(error));
   }, []);
 
+  const showEventOnDateHandler = (value) => {
+    const objDate = dateWithEvents.find(
+      (date) => date.stringDate === value.toDateString()
+    );
+    if (objDate) {
+      setDetailEvents(objDate.events);
+      setShowDetailCard(true);
+    }
+  };
+
+  const detailCardHandler = () => {
+    setShowDetailCard(false);
+  };
+
   return (
     <div className="my-calendar">
+      {showDetailCard && (
+        <DateDetailCard onClose={detailCardHandler} events={detailEvents} />
+      )}
       {isLoading && <p>Is loading...</p>}
       {!isLoading && (
         <Calendar
           className="my-calendar"
-          tileClassName="day-tile"
+          tileClassName="day-tile border"
           minDetail="month"
-          onClickDay={(value, event) => console.log(value)}
+          onClickDay={(value) => showEventOnDateHandler(value)}
           tileContent={({ date }) => {
             if (dateWithEvents.length > 0) {
               for (let i = 0; i < dateWithEvents.length || i < 3; i++) {
                 if (date.toDateString() === dateWithEvents[i].stringDate) {
                   //ถ้าถูกวันแล้ว
                   const events = dateWithEvents[i].events;
+                  if (events.length > 3) {
+                    return events.slice(0, 2).map((event, index) => (
+                      <div key={index}>
+                        <EventCard
+                          title={event.attributes.title}
+                          color={event.attributes.color}
+                          date={event.attributes.date}
+                        />
+                        {index === 1 && <p>...</p>}
+                      </div>
+                    ));
+                  }
                   return events.map((event, index) => (
                     <EventCard
                       key={index}

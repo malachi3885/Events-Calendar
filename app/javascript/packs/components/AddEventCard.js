@@ -66,6 +66,7 @@ const AddEventCard = (props) => {
               placeholder="Add Title"
               value={title}
               onChange={titleChangeHandler}
+              required
             />
             <input
               type="text"
@@ -89,7 +90,8 @@ const AddEventCard = (props) => {
               placeholder="Date and time "
               value={dateTime}
               onChange={dateChangeHandler}
-            ></DateTimePickerComponent>
+              required
+            />
             <button className="btn btn-primary save-button">Save</button>
           </form>
         </div>

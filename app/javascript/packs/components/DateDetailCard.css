@@ -1,0 +1,99 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.date-detail-card {
+  position: absolute;
+  top: 70vh;
+  left: 50%;
+  width: 25rem;
+  height: 10rem;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  overflow-y: scroll;
+  animation: moveInFromRight 0.2s ease-in;
+}
+
+.date-string {
+  padding: 0 5%;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 900;
+}
+
+.header-text {
+  margin: 5px 0;
+}
+
+.header-line {
+  color: black;
+  opacity: 1;
+  margin-top: 0;
+}
+
+.each-event {
+  padding: 0 5%;
+  margin-bottom: 0;
+}
+
+.color-band {
+  padding: 2px;
+  width: 25px;
+  border-radius: 5px;
+}
+
+.head-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin-top: 0;
+}
+
+.event-time {
+  font-size: 0.6rem;
+  font-style: oblique;
+}
+
+.event-title {
+  margin-left: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Trebuchet MS, sans-serif;
+}
+
+.delete-icon {
+  margin-bottom: 5px;
+}
+
+.delete-icon:hover {
+  cursor: pointer;
+}
+
+.event-description {
+  line-height: 0.5;
+  font-size: 1rem;
+  opacity: 0.5;
+  font-style: oblique;
+}
+
+@keyframes moveInFromRight {
+  0% {
+    opacity: 0;
+    transform: translate(-48%, -50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}

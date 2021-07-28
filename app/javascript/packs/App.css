@@ -11,6 +11,17 @@
   transform: translate(-50vw, -50vh);
 }
 
-.main-content {
-  /* display: flex; */
+.Red {
+  background-color: red;
+  color: white;
+}
+
+.Green {
+  background-color: green;
+  color: white;
+}
+
+.Blue {
+  background-color: blue;
+  color: white;
 }
