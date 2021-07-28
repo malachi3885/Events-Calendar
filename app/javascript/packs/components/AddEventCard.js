@@ -1,43 +1,37 @@
 import React, { useState } from "react";
 import axios from "axios";
-import moment from "moment";
-import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
+import DatePicker from "react-datepicker";
 
 import "./AddEventCard.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 const AddEventCard = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [color, setColor] = useState("");
-  const [dateTime, setDateTime] = useState(null);
+  const [dateTime, setDateTime] = useState(undefined);
 
   const titleChangeHandler = (e) => {
     setTitle(e.target.value);
-    console.log(e.target.value);
   };
 
   const descriptionChangeHandler = (e) => {
     setDescription(e.target.value);
-    console.log(e.target.value);
   };
 
   const colorChangeHandler = (e) => {
     setColor(e.target.value);
-    console.log(e.target.value);
   };
 
-  const dateChangeHandler = (e) => {
-    const datePlusHours = moment(e.target.value).add(7, "hours").toDate();
-    setDateTime(datePlusHours);
-    // console.log(tmp2);
-    // console.log(typeof e.target.value);
+  const dateChangeHandler = (date) => {
+    setDateTime(date);
   };
 
   const submitHandler = () => {
     axios
       .post("http://localhost:3000/api/v1/events", {
-        title,
-        description,
+        title: title.trim(),
+        description: description.trim(),
         color,
         date: dateTime,
       })
@@ -66,6 +60,7 @@ const AddEventCard = (props) => {
               placeholder="Add Title"
               value={title}
               onChange={titleChangeHandler}
+              maxlength="30"
               required
             />
             <input
@@ -74,6 +69,7 @@ const AddEventCard = (props) => {
               placeholder="Add Description"
               value={description}
               onChange={descriptionChangeHandler}
+              maxlength="50"
             />
             <select
               className="form-control input-form"
@@ -84,14 +80,20 @@ const AddEventCard = (props) => {
               <option>Red</option>
               <option>Blue</option>
               <option>Green</option>
+              <option>Purple</option>
+              <option>Orange</option>
             </select>
-            <DateTimePickerComponent
-              className="form-control"
-              placeholder="Date and time "
-              value={dateTime}
-              onChange={dateChangeHandler}
-              required
-            />
+            <div className="w-100 date-picker ">
+              <DatePicker
+                className="form-control input-form red-border"
+                placeholderText="Date and Time"
+                selected={dateTime}
+                onChange={(date) => dateChangeHandler(date)}
+                showTimeSelect
+                dateFormat="MMMM d, yyyy h:mm aa"
+                required
+              />
+            </div>
             <button className="btn btn-primary save-button">Save</button>
           </form>
         </div>

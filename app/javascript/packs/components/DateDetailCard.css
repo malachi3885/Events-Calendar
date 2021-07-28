@@ -42,6 +42,7 @@
 }
 
 .each-event {
+  width: 100%;
   padding: 0 5%;
   margin-bottom: 0;
 }
@@ -52,12 +53,13 @@
   border-radius: 5px;
 }
 
-.head-line {
+.headline {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   align-content: center;
-  margin-top: 0;
 }
 
 .event-time {
@@ -66,10 +68,12 @@
 }
 
 .event-title {
-  margin-left: 5px;
   font-size: 1.5rem;
   font-weight: bold;
   font-family: Trebuchet MS, sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
 }
 
 .delete-icon {
@@ -81,10 +85,12 @@
 }
 
 .event-description {
-  line-height: 0.5;
+  margin-top: 0;
+  line-height: 1;
   font-size: 1rem;
   opacity: 0.5;
   font-style: oblique;
+  word-wrap: break-word;
 }
 
 @keyframes moveInFromRight {

@@ -13,10 +13,8 @@ const toHourAndMin = (strDate) => {
 
 const DateDetailCard = ({ onClose, events = [] }) => {
   const date = new Date(events[0].attributes.date);
-  console.log(date.toDateString());
 
   const deleteHandler = (id) => {
-    console.log(id);
     axios
       .delete(`http://localhost:3000/api/v1/events/${id}`)
       .then((res) => window.location.reload())
@@ -36,10 +34,10 @@ const DateDetailCard = ({ onClose, events = [] }) => {
               {event.attributes.color && (
                 <div className={`${event.attributes.color} color-band`} />
               )}
-              <div className="head-line">
+              <div className="headline">
                 <p className="event-time">
-                  {toHourAndMin(event.attributes.date)}{" "}
-                  <span className="event-title"> {event.attributes.title}</span>
+                  {toHourAndMin(event.attributes.date)}&nbsp;&nbsp;
+                  <span className="event-title">{event.attributes.title}</span>
                 </p>
                 <BsFillTrashFill
                   className="delete-icon"

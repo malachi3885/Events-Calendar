@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 import EventCard from "./EventCard";
-import AddEventCard from "./AddEventCard";
 import DateDetailCard from "./DateDetailCard";
 import "./MyCalendar.css";
 
@@ -48,11 +47,9 @@ const MyCalendar = ({}) => {
               events: [events[i]],
             };
             updatedDateWithEvents = [...updatedDateWithEvents, addDate];
-            // console.log(updatedDateWithEvents);
           }
         }
         setDateWithEvents(updatedDateWithEvents);
-        console.log(updatedDateWithEvents);
       })
       .catch((error) => console.log(error));
   }, []);
